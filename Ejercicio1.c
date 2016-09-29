@@ -32,12 +32,12 @@ int main()
    printf ("Máximo número de bytes en un caracter multy-byte valor= %d\t\n",MB_LEN_MAX);
    printf ("\n"); //INTRO
    printf ("Storage size for float : %f \n", (float) sizeof(float)); //Devuelve el tamaño en bytes del tipo decimal (float).
-   printf ("Mínimo y máximo valor del tipo de datos float valor= %f\t\t%f\n",FLT_MIN,FLT_MAX);
+   printf ("Mínimo y máximo valor del tipo de datos float valor= %g\t\t%g\n",FLT_MIN,FLT_MAX);
    printf ("\n"); //INTRO
    printf ("Storage size for double : %f \n", (double) sizeof(double)); //Devuelve el tamaño en bytes del tipo decimal (double).
-   printf ("Mínimo y máximo valor del tipo de datos double valor= %f\t\t%f\n",DBL_MIN,DBL_MAX);
+   printf ("Mínimo y máximo valor del tipo de datos double valor= %g\t\t%g\n",DBL_MIN,DBL_MAX);
    printf ("\n"); //INTRO
-   printf ("Mínimo y máximo valor del tipo de datos long double valor= %Lf\t\t%Lf\n",LDBL_MIN,LDBL_MAX);
+   printf ("Mínimo y máximo valor del tipo de datos long double valor= %Lg\t\t%Lg\n",LDBL_MIN,LDBL_MAX);
    return 0;
 }
 
