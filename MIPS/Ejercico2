@@ -11,7 +11,7 @@ count: .word 11
 main:
 		la $t0,array 		  #Guardamos en $t0 la dirección de memoria donde empieza el array.
 		la $t1,count		  #Dirección de memoria donde empieza la variable count.
-		lw $t2,0($t1) 		#Carga en $t2 el contenido de $t1 más el desplazamiento.
+		lw $t2,0($t1) 		  #Carga en $t2 el contenido de $t1 más el desplazamiento.
 		addi $t3,$0,0		  #Inicializamos una variable temporal la cual iremos sumando.
 		
 
@@ -19,7 +19,7 @@ main:
 #Inicio del bucle
 loop:
 		addi $t2,$t2,-1		#Le restamos -1 a la variable $t2
-		lw $t4,0($t0)		  #Cargamos la dirección de memoria que contiene $t0 en $t4 más el desplazamiento.
+		lw $t4,0($t0)		#Cargamos la dirección de memoria que contiene $t0 en $t4 más el desplazamiento.
 		
 		sw $t3,0($t0)  		# Almacenamos el producto en memoria
 		addi $a0,$t3,0  	
