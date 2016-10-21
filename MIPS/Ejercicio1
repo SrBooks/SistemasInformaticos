@@ -1,0 +1,27 @@
+#Copiar un vector de memoria en otro.
+
+.data
+fin: .asciiz "El programa ha finalizado"
+vector: .word 1,2,3,4,5,6,7,8,9,10,11,12,13
+resVector: .space 52
+
+.text
+.globl main
+main:
+		la $t0,vector 		#Guardamos en $t0 la dirección de memoria donde empieza el vector.
+		la $t1,resVector 	#Guardamos en $t1 la dirección de memoria donde vamos a reservar el espacio necesario para copiar el vector.
+		addi $t2,$0,13		#Inicializamos una variable temporal la cual iremos decrementando.
+
+#Inicio del bucle
+loop:
+		lw $t3,0($t0)		#Cargamos la dirección de memoria que contiene $t0 en $t3 más el desplazamiento.
+		sw $t3,0($t1)		#Guardamos el contenido de $t3 en la dirección de memoria $t1.
+		addi $t0,$t0,4		#Le indicamos las posiciones que debe desplazarse para que realice todo el recorrido.
+		addi $t1,$t1,4 
+		addi $t2,$t2,-1 	#Le restamos 1 a la variable temporal.
+		bne $t2,$0,loop 	#Cuando $t2 llegue a 0 se acaba el bucle.
+
+la $a0, fin 				#Guardamos en $a0 la dirección de memoria donde empieza la variable fin.
+li $v0,4 					#Con el 4 le indicamos que se va a imprimir una cadena de texto.
+
+syscall 					#En este caso,imprime por pantalla la cadena de texto.
