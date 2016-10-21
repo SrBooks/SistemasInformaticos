@@ -1,0 +1,36 @@
+#Tabla del 7
+
+.data
+fin: .asciiz "El programa ha finalizado"
+array: .word 1,2,3,4,5,6,7,8,9,10,11
+count: .word 11
+
+
+.text
+.globl main
+main:
+		la $t0,array 		  #Guardamos en $t0 la dirección de memoria donde empieza el array.
+		la $t1,count		  #Dirección de memoria donde empieza la variable count.
+		lw $t2,0($t1) 		#Carga en $t2 el contenido de $t1 más el desplazamiento.
+		addi $t3,$0,0		  #Inicializamos una variable temporal la cual iremos sumando.
+		
+
+
+#Inicio del bucle
+loop:
+		addi $t2,$t2,-1		#Le restamos -1 a la variable $t2
+		lw $t4,0($t0)		  #Cargamos la dirección de memoria que contiene $t0 en $t4 más el desplazamiento.
+		
+		sw $t3,0($t0)  		# Almacenamos el producto en memoria
+		addi $a0,$t3,0  	
+		li $v0,1		
+		syscall 
+		addi $t3,$t3,7 		# 7 + Valor Anterior (acumulado)
+		
+		addi $t0,$t0,4		#Le indicamos las posiciones que debe desplazarse para que realice todo el recorrido.
+		bne $t2,$0,loop 	#Cuando $t2 llegue a 0 se acaba el bucle.
+
+la $a0, fin 				#Guardamos en $a0 la dirección de memoria donde empieza la variable fin.
+li $v0,4 					  #Con el 4 le indicamos que se va a imprimir una cadena de texto.
+
+syscall 
