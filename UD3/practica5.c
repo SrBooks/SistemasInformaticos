@@ -55,5 +55,5 @@ else {
 close(fichOrigen);//Cerramos el fichero origen
 close(fichDestino);//Cerramos el fichero destino
 printf("El programa ha finalizado\n");//Indicamos al usuario que el programa ya ha finailzado
-return:0;//Salimos del programa
+return 0;//Salimos del programa
 }
