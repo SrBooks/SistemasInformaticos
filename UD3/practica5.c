@@ -1,6 +1,7 @@
 #include<string.h>//Para el tratamiento de cadenas
 #include<stdlib.h>
 #include<unistd.h>//Para solucionar los warning que aparecian al compilar
+#include<fcntl.h>//Para los flags que definen el modo de apertura de un fichero
 
 int main(int argc, char **argv)
 {
